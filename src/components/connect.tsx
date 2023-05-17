@@ -183,18 +183,19 @@ const RepositoryBox = ({
 
 // Return a div element with the repo details and some styles
     return (
-        <div className="relative bg-gray-700 p-4 rounded-lg">
+        <div
+            className="relative bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-300/50 to-indigo-900/45 p-4 rounded-lg">
             <div className="flex items-center space-x-4">
                 <Image
                     src={repoData?.owner.avatar_url}
                     alt={username}
                     width={48}
                     height={48}
-                    className="rounded-full border-2 border-white/50"
+                    className="rounded-full border-2 border-white/30"
                 />
                 <div className="text-white">
                     <h3 className="font-bold text-lg">{repoData?.full_name}</h3>
-                    <div className="bg-gray-600 p-2 rounded-lg">
+                    <div className="bg-gradient-to-r from-gray-700 via-gray-900 to-cyan-900 p-2 rounded-lg">
                         <p className="text-sm">{repoData?.description}</p>
                     </div>
                     <div className="flex flex-wrap space-x-2 mt-2">
@@ -237,19 +238,16 @@ const Connect = ({
     name?: string;
 }) => {
     return (
-        <div className="flex flex-col mt-4 items-center space-y-8 max-w-screen-md mx-auto">
+        <div className="flex flex-col mt-4 items-center space-y-8 max-w-screen-md mx-auto pt-8 pl-2 pr-2">
             {githubProfileLink ? (
-                <>
-                    <div className="relative w-full md:w-64 h-full md:h-64 bg-gray-400 rounded-xl p-8">
-                        <ProfilePicture
-                            githubProfileLink={githubProfileLink}
-                            name={name} // Pass the `name` prop to the `ProfilePicture` component
-                        />
-
-                    </div>
+                <div className="bg-gray-600/25 rounded-xl flex flex-col items-center p-4">
+                    <ProfilePicture
+                        githubProfileLink={githubProfileLink}
+                        name={name} // Pass the `name` prop to the `ProfilePicture` component
+                    />
                     <StreakStats githubProfileLink={githubProfileLink}/>
                     <ContributionGraph githubProfileLink={githubProfileLink}/>
-                </>
+                </div>
             ) : null}
             {githubRepositoryLink ? (
                 <RepositoryBox githubRepositoryLink={githubRepositoryLink}/>
@@ -260,3 +258,5 @@ const Connect = ({
 
 
 export default Connect;
+
+
