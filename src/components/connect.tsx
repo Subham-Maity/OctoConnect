@@ -23,7 +23,7 @@ const useGitHubData = (url: string) => {
         fetchData();
     }, [url]);
 
-    return { data, loading, error };
+    return {data, loading, error};
 };
 
 // A custom hook to fetch data from a GitHub API endpoint for languages
@@ -46,7 +46,7 @@ const useGitHubLanguages = (url: string) => {
         fetchData();
     }, [url]);
 
-    return { data, loading, error };
+    return {data, loading, error};
 };
 
 // A component to display a GitHub profile picture in a circle
@@ -57,10 +57,7 @@ const ProfilePicture = ({
     githubProfileLink: string;
     name?: string;
 }) => {
-    // Extract the username from the profile link
     const username = githubProfileLink.split('/').pop();
-
-    // Use the custom hook to fetch the user data
     const { data, loading, error } = useGitHubData(
         `https://api.github.com/users/${username}`
     );
@@ -68,7 +65,6 @@ const ProfilePicture = ({
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error?.message}</div>;
 
-    // Return an image element with the profile picture and some styles
     return (
         <div className="flex flex-col items-center">
             <Image
@@ -118,7 +114,7 @@ const StreakStats = ({
     // Return an img element with the streak stats image and some styles
     return (
         <img
-            style={{ verticalAlign: 'center' }}
+            style={{verticalAlign: 'center'}}
             src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=transparent&hide_border=false&border_radius=10&exclude_days=Sun%2CMon%2CTue%2CWed%2CThu%2CFri%2CSat`}
         />
     );
@@ -134,11 +130,11 @@ const RepositoryBox = ({
     const [username, repoName] = githubRepositoryLink.split('/').slice(-2);
 
     // Use the custom hook to fetch the repo data
-    const { data: repoData, loading: repoLoading, error: repoError } =
+    const {data: repoData, loading: repoLoading, error: repoError} =
         useGitHubData(`https://api.github.com/repos/${username}/${repoName}`);
 
     // Use another custom hook to fetch the languages data
-    const { data: langData, loading: langLoading, error: langError } =
+    const {data: langData, loading: langLoading, error: langError} =
         useGitHubLanguages(
             `https://api.github.com/repos/${username}/${repoName}/languages`
         );
@@ -180,8 +176,6 @@ const RepositoryBox = ({
     };
 
 
-
-
     if (repoLoading || langLoading) return <div>Loading...</div>;
     if (repoError || langError)
         return <div>Error: {(repoError || langError)?.message}</div>;
@@ -204,7 +198,8 @@ const RepositoryBox = ({
                     </div>
                     <div className="flex flex-wrap space-x-2 mt-2">
                         {Object.keys(langData || {}).map((lang) => (
-                            <span key={lang} style={{ backgroundColor: langColors[lang] }} className="px-2 py-1 rounded-lg text-black font-bold">
+                            <span key={lang} style={{backgroundColor: langColors[lang]}}
+                                  className="px-2 py-1 rounded-lg text-black font-bold">
                  {lang} ({getLangPercentage(lang)})
                </span>
                         ))}
@@ -228,18 +223,22 @@ const RepositoryBox = ({
 const Connect = ({
                      githubProfileLink,
                      githubRepositoryLink,
+                     name,
                  }: {
     githubProfileLink: string;
     githubRepositoryLink: string;
+    name?: string;
 }) => {
     return (
         <div className="flex flex-col items-center space-y-8 max-w-screen-md mx-auto">
             {githubProfileLink ? (
                 <>
                     <div className="relative w-full md:w-64 h-full md:h-64 bg-gray-400 rounded-xl p-8">
-                        <ProfilePicture githubProfileLink={githubProfileLink} name="Subham Maity" />
+                        <ProfilePicture
+                            githubProfileLink={githubProfileLink}
+                            name={name} // Pass the `name` prop to the `ProfilePicture` component
+                        />
                         <ContributionGraph githubProfileLink={githubProfileLink} />
-
                     </div>
                     <StreakStats githubProfileLink={githubProfileLink} />
                 </>
@@ -250,5 +249,6 @@ const Connect = ({
         </div>
     );
 };
+
 
 export default Connect;
