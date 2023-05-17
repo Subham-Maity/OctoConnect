@@ -30,3 +30,9 @@
     margin-top: 2rem; /* 32px */
 }
 
+.details {
+    @apply text-lg mb-4
+}
+.qs{
+    @apply font-bold
+}
