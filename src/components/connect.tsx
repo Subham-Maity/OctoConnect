@@ -215,7 +215,7 @@ const RepositoryBox = ({
         'Coq': '#d0b68c',
         'Apex': '#1797c0',
         'Haxe': '#df7900',
-        'Scheme': '#1e4aec',
+        'Scheme': '#2244bc',
         'XSLT': '#EB8CEB',
         'Dhall': '#dfafff',
         'VCL': '#148AA8',
@@ -240,6 +240,21 @@ const RepositoryBox = ({
         HLSL: '#aace60',
         Hack: '#878787',
         'Inno Setup': '#264b99',
+        SmPL: '#c94949',
+        Yacc: '#4B6C4B',
+        Lex: '#DBCA00',
+        Ada: '#02f88c',
+        Awk: '#c30e9b',
+        'GDScript': '#355570',
+        'C# .NET': '#178600',
+        UnrealScript: '#a54c4d',
+        Raku: '#4040c7',
+        'AutoHotkey': '#6594b9',
+        M4: '#b04646',
+        MATLAB: '#e16737',
+        XS: '#eb427f',
+        sed: '#64b970',
+
 
     };
 
