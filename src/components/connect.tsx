@@ -51,6 +51,8 @@ const useGitHubLanguages = (url: string) => {
 };
 
 // A component to display a GitHub profile picture in a circle
+
+
 const ProfilePicture = ({
                             githubProfileLink,
                             name,
@@ -68,19 +70,26 @@ const ProfilePicture = ({
 
     return (
         <div className="flex flex-col items-center">
-            <Image
-                src={data?.avatar_url}
-                alt={username || ''}
-                width={240}
-                height={240}
-                className="rounded-full border-4 border-white"
-            />
+            <Link href={githubProfileLink} legacyBehavior>
+                <a target="_blank">
+                    <Image
+                        src={data?.avatar_url}
+                        alt={username || ''}
+                        width={240}
+                        height={240}
+                        className="rounded-full border-4 border-gray-600/25 shadow-md hover:border-gray-400 transition duration-300 animate-pulse"
+                    />
+                </a>
+            </Link>
+
+
             {name ? (
-                <div className="text-gray-800 font-bold text-lg mt-2">{name}</div>
+                <div className="text-gray-100/75 text-2xl mb-4 mt-2 font-bold ">{name}</div>
             ) : null}
         </div>
     );
 };
+
 
 // A component to display a GitHub contribution graph
 const ContributionGraph = ({
@@ -279,12 +288,12 @@ const RepositoryBox = ({
                     <div className="bg-gradient-to-r from-gray-700 via-gray-900 to-cyan-900 p-2 rounded-lg">
                         <p className="text-sm">{repoData?.description}</p>
                     </div>
-                    <div className="flex flex-wrap space-x-2 mt-2">
+                    <div className="flex flex-wrap space-x-2 mt-2 opacity-90">
                         {Object.keys(langData || {}).map((lang) => (
                             <span
                                 key={lang}
                                 style={{backgroundColor: langColors[lang]}}
-                                className="px-2 py-1 m-2 rounded-lg text-black font-bold"
+                                className="px-2 py-1 m-2 rounded-lg text-gray-800 font-bold"
                             >
  {lang} ({getLangPercentage(lang)})
  </span>
