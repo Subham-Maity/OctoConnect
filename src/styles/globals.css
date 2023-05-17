@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*~~~MainPage~~~~*/
+.main-bg {
+    @apply bg-gradient-to-b from-stone-700 to-gray-900 bg-gradient-to-r items-center justify-center text-white text-center min-h-screen;
+}
+
+.flex-item {
+    @apply flex flex-col items-center;
+}
+
+.box {
+    @apply w-full max-w-2xl p-6 mt-2 mb-2 border-dotted border-2 border-gray-600/75 rounded-lg shadow bg-gradient-to-l from-zinc-900/75 via-slate-800/25 to-gray-800/25;
+}
+
+@media (max-width: 768px) {
+    .flex-item {
+        @apply mt-8; /* Increase top margin for smaller screens */
+    }
+
+    .box {
+        @apply w-11/12 mx-auto; /* Adjust width for smaller screens */
+    }
+}
+
