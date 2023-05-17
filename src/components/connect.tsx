@@ -93,7 +93,7 @@ const ContributionGraph = ({
     // Return an image element with the contribution graph and some styles
     return (
         <img
-            src={`https://ghchart.rshah.org/subham-maity`}
+            src={`https://ghchart.rshah.org/${username}`}
             alt={`GitHub contribution graph of ${username}`}
             width={672}
             height={96}
@@ -238,9 +238,10 @@ const Connect = ({
                             githubProfileLink={githubProfileLink}
                             name={name} // Pass the `name` prop to the `ProfilePicture` component
                         />
-                        <ContributionGraph githubProfileLink={githubProfileLink} />
+
                     </div>
                     <StreakStats githubProfileLink={githubProfileLink} />
+                    <ContributionGraph githubProfileLink={githubProfileLink} />
                 </>
             ) : null}
             {githubRepositoryLink ? (
