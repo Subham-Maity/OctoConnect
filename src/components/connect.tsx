@@ -228,7 +228,6 @@ const RepositoryBox = ({
 const Connect = ({
                      githubProfileLink,
                      githubRepositoryLink,
-
                  }: {
     githubProfileLink: string;
     githubRepositoryLink: string;
@@ -238,7 +237,7 @@ const Connect = ({
             {githubProfileLink ? (
                 <>
                     <div className="relative w-full md:w-64 h-full md:h-64 bg-gray-400 rounded-xl p-8">
-                        <ProfilePicture githubProfileLink={githubProfileLink} name={name} />
+                        <ProfilePicture githubProfileLink={githubProfileLink} name="Subham Maity" />
                         <ContributionGraph githubProfileLink={githubProfileLink} />
 
                     </div>
