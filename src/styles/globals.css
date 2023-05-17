@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 /*~~~MainPage~~~~*/
 .main-bg {
     @apply bg-gradient-to-b from-stone-700 to-gray-900 bg-gradient-to-r items-center justify-center text-white text-center min-h-screen;
@@ -38,4 +40,33 @@
 }
 .box{
     @apply w-full max-w-2xl p-6 mt-2 mb-2 border-dotted border-2 border-gray-600/75 rounded-lg shadow bg-gradient-to-l from-zinc-900/75 via-slate-800/25 to-gray-800/25
+}
+
+
+
+/* Define a class for the language buttons */
+.lang-btn {
+    display: inline-block;
+    color: #191919;
+    padding: 0.4rem 0.4rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: inset 0 -3px 10px rgba(0,0,0,0.2), inset 0 3px 10px rgba(255,255,255,0.2), inset -3px -3px 10px rgba(255,255,255,0.2), inset -3px -3px 10px rgba(255,255,255,0.2), inset -3px -3px 10px rgba(255,255,255,0.2), inset -3px -3px 10px rgba(255,255,255,0.2), inset -3px -3px 10px rgba(255,255,255,0.2), inset -3px -3px 10px rgba(255,255,255,0.2);
+}
+
+/* Use the style attribute to set the background color of each button */
+
+
+/* Add some hover and active effects */
+.lang-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.lang-btn:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
 }

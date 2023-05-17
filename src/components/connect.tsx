@@ -308,7 +308,7 @@ const RepositoryBox = ({
                             <span
                                 key={lang}
                                 style={{backgroundColor: langColors[lang]}}
-                                className="px-1 py-0.5 m-1 rounded-lg text-gray-800 font-bold text-xs"
+                                className="lang-btn px-1 py-0.5 m-1 rounded-lg text-gray-800 font-bold text-xs"
                             >
                                 {lang} ({getLangPercentage(lang)})
                             </span>
