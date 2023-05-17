@@ -59,7 +59,7 @@ const ProfilePicture = ({
     name?: string;
 }) => {
     const username = githubProfileLink.split('/').pop();
-    const { data, loading, error } = useGitHubData(
+    const {data, loading, error} = useGitHubData(
         `https://api.github.com/users/${username}`
     );
 
@@ -201,7 +201,7 @@ const RepositoryBox = ({
                         {Object.keys(langData || {}).map((lang) => (
                             <span
                                 key={lang}
-                                style={{ backgroundColor: langColors[lang] }}
+                                style={{backgroundColor: langColors[lang]}}
                                 className="px-2 py-1 m-2 rounded-lg text-black font-bold"
                             >
  {lang} ({getLangPercentage(lang)})
@@ -211,7 +211,7 @@ const RepositoryBox = ({
                 </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "flex-end", margin: "10px", padding: "10px" }}>
+            <div style={{display: "flex", justifyContent: "flex-end", margin: "10px", padding: "10px"}}>
                 <Link
                     className={`${styles.cta} text-sm py-1 px-2 rounded-full`}
                     href={githubRepositoryLink}
@@ -224,9 +224,6 @@ const RepositoryBox = ({
         </div>
     );
 };
-
-
-
 
 
 // The main component that takes two props: a GitHub profile link and a GitHub repository link
@@ -250,12 +247,12 @@ const Connect = ({
                         />
 
                     </div>
-                    <StreakStats githubProfileLink={githubProfileLink} />
-                    <ContributionGraph githubProfileLink={githubProfileLink} />
+                    <StreakStats githubProfileLink={githubProfileLink}/>
+                    <ContributionGraph githubProfileLink={githubProfileLink}/>
                 </>
             ) : null}
             {githubRepositoryLink ? (
-                <RepositoryBox githubRepositoryLink={githubRepositoryLink} />
+                <RepositoryBox githubRepositoryLink={githubRepositoryLink}/>
             ) : null}
         </div>
     );
