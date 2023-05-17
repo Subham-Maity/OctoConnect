@@ -36,3 +36,6 @@
 .qs{
     @apply font-bold
 }
+.box{
+    @apply w-full max-w-2xl p-6 mt-2 mb-2 border-dotted border-2 border-gray-600/75 rounded-lg shadow bg-gradient-to-l from-zinc-900/75 via-slate-800/25 to-gray-800/25
+}

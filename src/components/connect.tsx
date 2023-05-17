@@ -284,25 +284,25 @@ const RepositoryBox = ({
                     className="rounded-full border-2 border-white/30"
                 />
                 <div className="text-white">
-                    <h3 className="font-bold text-lg">{repoData?.full_name}</h3>
-                    <div className="bg-gradient-to-r from-gray-700 via-gray-900 to-cyan-900 p-2 rounded-lg">
-                        <p className="text-sm">{repoData?.description}</p>
+                    <h3 className="font-bold text-lg text-stone-200">{repoData?.full_name}</h3>
+                    <div className="mt-2 bg-gradient-to-r from-gray-700 via-gray-900 to-cyan-900 p-2 rounded-lg">
+                        <p className="text-sm text-neutral-200/75 font-semibold">{repoData?.description}</p>
                     </div>
                     <div className="flex flex-wrap space-x-2 mt-2 opacity-90">
                         {Object.keys(langData || {}).map((lang) => (
                             <span
                                 key={lang}
                                 style={{backgroundColor: langColors[lang]}}
-                                className="px-2 py-1 m-2 rounded-lg text-gray-800 font-bold"
+                                className="px-1 py-0.5 m-1 rounded-lg text-gray-800 font-bold text-xs"
                             >
- {lang} ({getLangPercentage(lang)})
- </span>
+                                {lang} ({getLangPercentage(lang)})
+                            </span>
                         ))}
                     </div>
                 </div>
             </div>
 
-            <div style={{display: "flex", justifyContent: "flex-end", margin: "10px", padding: "10px"}}>
+            <div style={{display: "flex", justifyContent: "flex-end", margin: "10px", padding: "12px"}}>
                 <Link
                     className={`${styles.cta} text-sm py-1 px-2 rounded-full`}
                     href={githubRepositoryLink}
