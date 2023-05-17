@@ -2,7 +2,8 @@
 import React from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-
+import styles from './connect.module.css';
+import Link from "next/link";
 // A custom hook to fetch data from a GitHub API endpoint
 const useGitHubData = (url: string) => {
     const [data, setData] = React.useState<any>(null);
@@ -133,7 +134,7 @@ const RepositoryBox = ({
     const {data: repoData, loading: repoLoading, error: repoError} =
         useGitHubData(`https://api.github.com/repos/${username}/${repoName}`);
 
-    // Use another custom hook to fetch the languages data
+    // Use another custom hook to fetch the languages' data
     const {data: langData, loading: langLoading, error: langError} =
         useGitHubLanguages(
             `https://api.github.com/repos/${username}/${repoName}/languages`
@@ -180,9 +181,9 @@ const RepositoryBox = ({
     if (repoError || langError)
         return <div>Error: {(repoError || langError)?.message}</div>;
 
-    // Return a div element with the repo details and some styles
+// Return a div element with the repo details and some styles
     return (
-        <div className="flex flex-col md:flex-row items-center justify-between bg-gray-700 p-4 rounded-lg">
+        <div className="relative bg-gray-700 p-4 rounded-lg">
             <div className="flex items-center space-x-4">
                 <Image
                     src={repoData?.owner.avatar_url}
@@ -198,26 +199,35 @@ const RepositoryBox = ({
                     </div>
                     <div className="flex flex-wrap space-x-2 mt-2">
                         {Object.keys(langData || {}).map((lang) => (
-                            <span key={lang} style={{backgroundColor: langColors[lang]}}
-                                  className="px-2 py-1 rounded-lg text-black font-bold">
-                 {lang} ({getLangPercentage(lang)})
-               </span>
+                            <span
+                                key={lang}
+                                style={{ backgroundColor: langColors[lang] }}
+                                className="px-2 py-1 m-2 rounded-lg text-black font-bold"
+                            >
+ {lang} ({getLangPercentage(lang)})
+ </span>
                         ))}
                     </div>
                 </div>
             </div>
-            <a
-                href={githubRepositoryLink}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-1 px-3 rounded-2xl ml-2 md:mt-0 md:w-32 md:text-center text-sm"
 
-            >
-                View Repo
-            </a>
+            <div style={{ display: "flex", justifyContent: "flex-end", margin: "10px", padding: "10px" }}>
+                <Link
+                    className={`${styles.cta} text-sm py-1 px-2 rounded-full`}
+                    href={githubRepositoryLink}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    View Repository <span>→</span>
+                </Link>
+            </div>
         </div>
     );
 };
+
+
+
+
 
 // The main component that takes two props: a GitHub profile link and a GitHub repository link
 const Connect = ({
@@ -230,7 +240,7 @@ const Connect = ({
     name?: string;
 }) => {
     return (
-        <div className="flex flex-col items-center space-y-8 max-w-screen-md mx-auto">
+        <div className="flex flex-col mt-4 items-center space-y-8 max-w-screen-md mx-auto">
             {githubProfileLink ? (
                 <>
                     <div className="relative w-full md:w-64 h-full md:h-64 bg-gray-400 rounded-xl p-8">
