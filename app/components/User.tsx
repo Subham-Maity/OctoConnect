@@ -10,9 +10,9 @@ export const User = () => {
                     githubRepositoryLink="https://github.com/Subham-Maity/ReactJS-For-Beginners"
                 />
 
-                <Connect githubRepositoryLink="https://github.com/Subham-Maity/docker_tutorial" />
+                <Connect githubRepositoryLink="https://github.com/Subham-Maity/docker_tutorial"/>
 
-                <Connect githubRepositoryLink="https://github.com/Subham-Maity/prisma-tutorial" />
+                <Connect githubRepositoryLink="https://github.com/Subham-Maity/prisma-tutorial"/>
             </div>
 
             <div className="box">
@@ -22,7 +22,7 @@ export const User = () => {
                     githubRepositoryLink="https://github.com/torvalds/linux"
                 />
 
-                <Connect githubRepositoryLink="https://github.com/torvalds/test-tlb" />
+                <Connect githubRepositoryLink="https://github.com/torvalds/test-tlb"/>
             </div>
         </div>
     );
