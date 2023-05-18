@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 /*~~~MainPage~~~~*/
 .main-bg {
     @apply bg-gradient-to-b from-stone-700 to-gray-900 bg-gradient-to-r items-center justify-center text-white text-center min-h-screen;

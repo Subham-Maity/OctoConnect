@@ -1,20 +1,20 @@
-// next.config.js
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/
-});
-
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-
-    domains: ['avatars.githubusercontent.com','ghchart.rshah.org'],
+    domains: [
+      "avatars.githubusercontent.com",
+      "ghchart.rshah.org",
+      "github-readme-streak-stats.herokuapp.com",
+    ],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'ghchart.rshah.org',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "ghchart.rshah.org",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
-});
+};
+
+module.exports = nextConfig;
