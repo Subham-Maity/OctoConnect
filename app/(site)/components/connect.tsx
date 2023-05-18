@@ -5,8 +5,10 @@ import axios, {CancelTokenSource} from 'axios';
 import Image from "next/image";
 import styles from "./connect.module.css";
 import Link from "next/link";
+
+
 // A custom hook to fetch data from a GitHub API endpoint
-const useGitHubData = (url: string) => {
+const useGitHubData = (url: string, options?: any) => {
     const [data, setData] = React.useState<any>(null);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState<any>(null);
@@ -17,7 +19,10 @@ const useGitHubData = (url: string) => {
 
         (async () => {
             try {
-                const response = await axios.get(url, {cancelToken: cancelTokenSource?.token});
+                const response = await axios.get(url, {
+                    ...options,
+                    cancelToken: cancelTokenSource?.token,
+                });
                 if (isMounted) {
                     setData(response.data);
                     setLoading(false);
@@ -43,9 +48,7 @@ const useGitHubData = (url: string) => {
     return {data, loading, error};
 };
 
-
-// A custom hook to fetch data from a GitHub API endpoint for languages
-const useGitHubLanguages = (url: string) => {
+const useGitHubLanguages = (url: string, options?: any) => {
     const [data, setData] = React.useState<any>(null);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState<any>(null);
@@ -55,7 +58,7 @@ const useGitHubLanguages = (url: string) => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(url);
+                const response = await axios.get(url, options);
                 if (isMounted) {
                     setData(response.data);
                     setLoading(false);
@@ -96,8 +99,11 @@ const ProfilePicture = ({
 }) => {
     const username = githubProfileLink.split("/").pop();
     const {data, loading, error} = useGitHubData(
-        `https://api.github.com/users/${username}`
-    );
+        `https://api.github.com/users/${username}`, {
+            headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+            },
+        });
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error?.message}</div>;
@@ -175,16 +181,22 @@ const RepositoryBox = ({
         data: repoData,
         loading: repoLoading,
         error: repoError,
-    } = useGitHubData(`https://api.github.com/repos/${username}/${repoName}`);
+    } = useGitHubData(`https://api.github.com/repos/${username}/${repoName}`, {
+        headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+        },
+    });
 
-    // Use another custom hook to fetch the languages' data
     const {
         data: langData,
         loading: langLoading,
         error: langError,
     } = useGitHubLanguages(
-        `https://api.github.com/repos/${username}/${repoName}/languages`
-    );
+        `https://api.github.com/repos/${username}/${repoName}/languages`, {
+            headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+            },
+        });
 
     // Define an object that maps language names to colors
     const langColors: { [key: string]: string } = {
