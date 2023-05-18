@@ -312,7 +312,7 @@ const RepositoryBox = ({
     // Return a div element with the repo details and some styles
     return (
         <div
-            className="relative bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-300/50 to-indigo-900/45 p-4 rounded-lg">
+            className="relative mb-4 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-300/50 to-indigo-900/45 p-4 rounded-lg">
             <div className="flex items-center space-x-4">
                 <Image
                     src={repoData?.owner.avatar_url}
@@ -368,11 +368,11 @@ const RepositoryBox = ({
 // The main component that takes two props: a GitHub profile link and a GitHub repository link
 const Connect = ({
                      githubProfileLink,
-                     githubRepositoryLink,
+                     githubRepositoryLinks,
                      name,
                  }: {
     githubProfileLink?: string;
-    githubRepositoryLink?: string;
+    githubRepositoryLinks?: string[];
     name?: string;
 }) => {
     return (
@@ -381,17 +381,27 @@ const Connect = ({
                 <div className="bg-gray-600/25 rounded-xl flex flex-col items-center p-4">
                     <ProfilePicture
                         githubProfileLink={githubProfileLink}
-                        name={name} // Pass the `name` prop to the `ProfilePicture` component
+                        name={name}
                     />
-                    <StreakStats githubProfileLink={githubProfileLink}/>
-                    <ContributionGraph githubProfileLink={githubProfileLink}/>
+                    <StreakStats githubProfileLink={githubProfileLink} />
+                    <ContributionGraph githubProfileLink={githubProfileLink} />
                 </div>
             ) : null}
-            {githubRepositoryLink ? (
-                <RepositoryBox githubRepositoryLink={githubRepositoryLink}/>
+            {githubRepositoryLinks ? (
+                <div className="mb-4"> {/* Apply mb-4 class here */}
+                    {githubRepositoryLinks.map((repoLink, index) => (
+                        <RepositoryBox
+                            key={index}
+                            githubRepositoryLink={repoLink}
+                        />
+                    ))}
+                </div>
             ) : null}
         </div>
     );
 };
 
 export default Connect;
+
+
+
