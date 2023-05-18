@@ -1,7 +1,7 @@
 "use client";
 // connect.tsx
 import React from "react";
-import axios from "axios";
+import axios, {CancelTokenSource} from 'axios';
 import Image from "next/image";
 import styles from "./connect.module.css";
 import Link from "next/link";
@@ -12,21 +12,37 @@ const useGitHubData = (url: string) => {
     const [error, setError] = React.useState<any>(null);
 
     React.useEffect(() => {
-        const fetchData = async () => {
+        let isMounted = true;
+        let cancelTokenSource: CancelTokenSource | null = axios.CancelToken.source();
+
+        (async () => {
             try {
-                const response = await axios.get(url);
-                setData(response.data);
-                setLoading(false);
+                const response = await axios.get(url, {cancelToken: cancelTokenSource?.token});
+                if (isMounted) {
+                    setData(response.data);
+                    setLoading(false);
+                }
             } catch (err) {
-                setError(err);
-                setLoading(false);
+                if (axios.isCancel(err)) {
+                    // Request was canceled
+                    return;
+                }
+                if (isMounted) {
+                    setError(err);
+                    setLoading(false);
+                }
             }
+        })();
+
+        return () => {
+            isMounted = false;
+            cancelTokenSource?.cancel(); // Cancel the Axios request
         };
-        fetchData();
     }, [url]);
 
     return {data, loading, error};
 };
+
 
 // A custom hook to fetch data from a GitHub API endpoint for languages
 const useGitHubLanguages = (url: string) => {
@@ -35,21 +51,39 @@ const useGitHubLanguages = (url: string) => {
     const [error, setError] = React.useState<any>(null);
 
     React.useEffect(() => {
+        let isMounted = true; // flag to prevent setting state after unmounting
+
         const fetchData = async () => {
             try {
                 const response = await axios.get(url);
-                setData(response.data);
-                setLoading(false);
+                if (isMounted) {
+                    setData(response.data);
+                    setLoading(false);
+                }
             } catch (err) {
+                if (isMounted) {
+                    setError(err);
+                    setLoading(false);
+                }
+            }
+        };
+
+        fetchData().catch((err) => {
+            console.error(err);
+            if (isMounted) {
                 setError(err);
                 setLoading(false);
             }
+        });
+
+        return () => {
+            isMounted = false; // cleanup function to set the flag to false
         };
-        fetchData();
     }, [url]);
 
     return {data, loading, error};
 };
+
 
 // A component to display a GitHub profile picture in a circle
 
