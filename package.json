@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.2.0",
+    "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
@@ -22,6 +22,6 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
-    "vercel": "^29.0.1"
+    "vercel": "^29.3.4"
   }
 }
