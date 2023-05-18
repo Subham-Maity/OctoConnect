@@ -18,7 +18,7 @@ I built this project because I wanted to show off my team's work and skills in a
 
 2. **Give it a Repository Name and click on the Create button. That's it!**
 
-![](https://private-user-images.githubusercontent.com/97989643/239226724-53627712-39d3-4ed0-8b41-c7a5738423be.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJrZXkxIiwiZXhwIjoxNjg0NDI2NDY3LCJuYmYiOjE2ODQ0MjYxNjcsInBhdGgiOiIvOTc5ODk2NDMvMjM5MjI2NzI0LTUzNjI3NzEyLTM5ZDMtNGVkMC04YjQxLWM3YTU3Mzg0MjNiZS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBSVdOSllBWDRDU1ZFSDUzQSUyRjIwMjMwNTE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIzMDUxOFQxNjA5MjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xZjNmYjRjNjg0YjRlNzYyMDViOWVkOTg1YTE5ZGYxOTU1NDEyYTdlYzZkYzMwMmY0OGY5NzVlZjk2Nzc0NzQwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.D0WdwV3kbxueBPtlUNw-odIb-QbWPzsJfCvb31apoNU)
+![Screenshot 2023-05-18 172211](https://github.com/Subham-Maity/OctoConnect/assets/97989643/bc7bb78a-35e6-409b-b037-91bf2ee0714c)
 
 
 ### Step 2: How to customize it?
