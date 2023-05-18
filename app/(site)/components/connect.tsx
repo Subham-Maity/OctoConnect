@@ -383,8 +383,8 @@ const Connect = ({
                         githubProfileLink={githubProfileLink}
                         name={name}
                     />
-                    <StreakStats githubProfileLink={githubProfileLink} />
-                    <ContributionGraph githubProfileLink={githubProfileLink} />
+                    <StreakStats githubProfileLink={githubProfileLink}/>
+                    <ContributionGraph githubProfileLink={githubProfileLink}/>
                 </div>
             ) : null}
             {githubRepositoryLinks ? (
