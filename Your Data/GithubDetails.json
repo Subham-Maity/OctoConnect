@@ -7,5 +7,13 @@
       "https://github.com/Subham-Maity/docker_tutorial",
       "https://github.com/Subham-Maity/prisma-tutorial"
     ]
+  },
+  {
+    "name": "Linus Torvalds",
+    "githubProfileLink": "https://github.com/torvalds",
+    "githubRepositoryLinks": [
+      "https://github.com/torvalds/linux",
+      "https://github.com/torvalds/test-tlb"
+    ]
   }
 ]
