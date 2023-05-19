@@ -89,6 +89,38 @@ git push origin main
 
 Congratulations 🎉, you have successfully deployed your portfolio on Vercel and now you can see it live on the web.
 
+
+## Api Rate Limit Handling
+
+For more details on GitHub API Rate Limiting, please refer to the 
+- [In this Repo's doc](https://github.com/Subham-Maity/OctoConnect)
+- [HashNode](https://vercel.com/subham-maity/octoconnect)
+- [Dev.to](https://dev.to/subhammaity/octoconnect-showcase-your-team-s-awesome-projects-4j0m)
+
+### Step 1. (Environment Variable Setup)
+1. Clone the repo using the following command.
+```bash
+git clone https://github.com/Subham-Maity/OctoConnect.git
+```
+2. Open the project in your favorite code editor.
+3. In the root directory, create a `.env.local` file or rename the `.env.local.example` file to `.env.local`.
+```
+You will see the following code in the `.env.local.example` file.
+
+```ts
+NEXT_PUBLIC_GITHUB_TOKEN=github_pat_11AXLTICY0jSz5k........
+```
+Copy the token and paste it in the `.env.local` file.
+
+### Step 2.(Secret Key generation)
+
+1. Open your github account and go to `Settings > Developer Settings(Bottom Left) > Personal Access Tokens > Generate new token`.
+
+
+
+
+
+
 ## Contributing
 
 Contributions are always welcome! If you'd like to contribute to the project, please raise an issue before creating a pull request.
