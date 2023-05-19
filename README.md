@@ -4,11 +4,11 @@ ___
 ___
 OctoConnect is a website that lets you easily display your team's projects on one page with GitHub profile details as a portfolio. It's super simple to use: just provide a GitHub link and it will automatically fill everything for you. No coding required! 🙌
 
-### Why OctoConnect?
+## 🔗 Why OctoConnect?
 
 I built this project because I wanted to show off my team's work and skills in a simple and elegant way. I think it's a great way to impress potential employers, clients, or collaborators with your amazing projects. 🚀
 
-## How to use OctoConnect for your own portfolio 
+## 🔗 How to use OctoConnect for your own portfolio 
 > Trust me, this is one of the easiest ways to create a stunning portfolio.
 
 ### Step 1: Deploy this repo on Vercel. 
@@ -36,6 +36,7 @@ I built this project because I wanted to show off my team's work and skills in a
 }
 ```
 > Just fill the `title`, `question` and `answer` fields.
+
 6. **Edit the `GithubDetails.json` file with your team members' details.**
 ```ts
 [
@@ -90,17 +91,12 @@ git push origin main
 Congratulations 🎉, you have successfully deployed your portfolio on Vercel and now you can see it live on the web.
 
 
-## Api Rate Limit Handling
+## 🔗 Api Rate Limit Increases to 5000 requests per hour
 
 For more details on GitHub API Rate Limiting, please refer to the 
-- [In this Repo's doc](https://github.com/Subham-Maity/OctoConnect)
-- [HashNode](https://vercel.com/subham-maity/octoconnect)
-- [Dev.to](https://dev.to/subhammaity/octoconnect-showcase-your-team-s-awesome-projects-4j0m)
-
-
-![Untitled-1 copy](https://github.com/Subham-Maity/OctoConnect/assets/97989643/dec1d1a8-1bc8-4df7-8dcb-4c3bc6dae8f1)
-
-
+### ↠ [**In this Repo's doc**](https://github.com/Subham-Maity/OctoConnect/tree/main/Error%20Handle%20DOC/API%20rate%20limit%20exceeded)
+### ↠ [**HashNode**](https://codexam.hashnode.dev/github-api-rate-limit-exceeded-problem)
+### ↠ [**Dev.to**](https://dev.to/codexam/github-api-rate-limit-exceeded-problem-502f)
 
 ### Step 1. (Environment Variable Setup)
 1. Clone the repo using the following command.
@@ -114,21 +110,54 @@ You will see the following code in the `.env.local.example` file.
 
 ```ts
 NEXT_PUBLIC_GITHUB_TOKEN=github_pat_11AXLTICY0jSz5k........
+
 ```
 Copy the token and paste it in the `.env.local` file.
 
 ### Step 2.(Secret Key generation)
 
-1. Open your github account and go to `Settings > Developer Settings(Bottom Left) > Personal Access Tokens > Generate new token`.
+![Untitled-1 copy](https://github.com/Subham-Maity/OctoConnect/assets/97989643/dec1d1a8-1bc8-4df7-8dcb-4c3bc6dae8f1)
+
+1. Open your github account and go to `Settings > Developer Settings(Bottom Left) 
+2. Click on `Personal Access Tokens` and then click on `Tokens (classic)`.
+3. Give a note name and select the `repo` scope.
+4. Click on `Generate Token` and copy the token.
+5. Paste the token in the `.env.local` file.
+
+### Step 3.(Deploying on Vercel)
+
+1. Open your terminal and run the following command to install the dependencies.
+2. Run the following command `vercel link` to link your project to Vercel.
+3. Now they will ask you to select a scope. Select your username. 
+4. Now they will ask you to select a project. Select your project.
+5. Run the following command `vercel env add NEXT_PUBLIC_GITHUB_TOKEN` to add the environment variable.
+6. Now they will ask you to enter the value of the environment variable. Enter the token.
+7. Now they will ask you to select the environment. Select `Production`.
+8. Now you can see your project is on Vercel. (Additionally, you can commit and push the changes to your GitHub repo so that it will automatically deploy on Vercel.)
+9. Go to your Vercel dashboard and open your project.
+10. Go to `Settings > Environment Variables` and check if the environment variable is added or not.
+11. If it is not added, then add it manually.
+12. Now you can see your project is live on the web with the API rate limit increased to `5000 requests` per hour.
 
 
+#### Example (`My Terminal Work`)
+```bash
+PS F:\mains\OctoMeetOfficial\octomeetdevelopers> vercel link 
+Vercel CLI 29.3.4
+? Set up “F:\mains\OctoMeetOfficial\octomeetdevelopers”? [Y/n] y
+? Which scope should contain your project? subham-maity
+? Found project “subham-maity/octomeetdevelopers”. Link to it? [Y/n] y
+✅  Linked to subham-maity/octomeetdevelopers (created .vercel)
+PS F:\mains\OctoMeetOfficial\octomeetdevelopers> vercel env add NEXT_PUBLIC_GITHUB_TOKEN
+Vercel CLI 29.3.4
+? What’s the value of NEXT_PUBLIC_GITHUB_TOKEN? github_pat_11AXLTICY0.....
+? Add NEXT_PUBLIC_GITHUB_TOKEN to which Environments (select multiple)? Production
+✅  Added Environment Variable NEXT_PUBLIC_GITHUB_TOKEN to Project octomeetdevelopers [308ms]
+```
 
-
-
-
-## Contributing
+## 🔗 Contributing
 
 Contributions are always welcome! If you'd like to contribute to the project, please raise an issue before creating a pull request.
 
-## Star the Repo if you liked it :)
+## 🌟 Star the Repo if you liked it :)
 
