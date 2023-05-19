@@ -97,6 +97,11 @@ For more details on GitHub API Rate Limiting, please refer to the
 - [HashNode](https://vercel.com/subham-maity/octoconnect)
 - [Dev.to](https://dev.to/subhammaity/octoconnect-showcase-your-team-s-awesome-projects-4j0m)
 
+
+![Untitled-1 copy](https://github.com/Subham-Maity/OctoConnect/assets/97989643/dec1d1a8-1bc8-4df7-8dcb-4c3bc6dae8f1)
+
+
+
 ### Step 1. (Environment Variable Setup)
 1. Clone the repo using the following command.
 ```bash
