@@ -155,6 +155,9 @@ Vercel CLI 29.3.4
 ✅  Added Environment Variable NEXT_PUBLIC_GITHUB_TOKEN to Project octomeetdevelopers [308ms]
 ```
 
+## 🔗 Features
+
+
 ## 🔗 Contributing
 
 Contributions are always welcome! If you'd like to contribute to the project, please raise an issue before creating a pull request.
