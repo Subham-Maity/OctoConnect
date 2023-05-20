@@ -7,6 +7,10 @@ OctoConnect is a website that lets you easily display your team's projects on on
 ## 🔗 Why OctoConnect?
 
 I built this project because I wanted to show off my team's work and skills in a simple and elegant way. I think it's a great way to impress potential employers, clients, or collaborators with your amazing projects. 🚀
+### ⚡ Features
+- [**Customise GitHub Information**](https://github.com/Subham-Maity/OctoConnect#step-2-how-to-customize-it)
+- [**API Limit Increase**](https://github.com/Subham-Maity/OctoConnect/tree/main/DOC/API%20rate%20limit%20exceeded)
+- [**Back to Top**](https://github.com/Subham-Maity/OctoConnect/tree/main/DOC/BackToTop)
 
 ## 🔗 How to use OctoConnect for your own portfolio 
 > Trust me, this is one of the easiest ways to create a stunning portfolio.
@@ -94,7 +98,7 @@ Congratulations 🎉, you have successfully deployed your portfolio on Vercel an
 ## 🔗 Api Rate Limit Increases to 5000 requests per hour
 
 For more details on GitHub API Rate Limiting, please refer to the 
-### ↠ [**In this Repo's doc**](https://github.com/Subham-Maity/OctoConnect/tree/main/Error%20Handle%20DOC/API%20rate%20limit%20exceeded)
+### ↠ [**In this Repo's doc**](https://github.com/Subham-Maity/OctoConnect/tree/main/DOC/API%20rate%20limit%20exceeded)
 ### ↠ [**HashNode**](https://codexam.hashnode.dev/github-api-rate-limit-exceeded-problem)
 ### ↠ [**Dev.to**](https://dev.to/codexam/github-api-rate-limit-exceeded-problem-502f)
 
@@ -154,9 +158,6 @@ Vercel CLI 29.3.4
 ? Add NEXT_PUBLIC_GITHUB_TOKEN to which Environments (select multiple)? Production
 ✅  Added Environment Variable NEXT_PUBLIC_GITHUB_TOKEN to Project octomeetdevelopers [308ms]
 ```
-
-## 🔗 Features
-
 
 ## 🔗 Contributing
 
