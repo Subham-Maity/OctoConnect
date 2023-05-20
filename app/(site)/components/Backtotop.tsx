@@ -1,26 +1,37 @@
 "use client";
 
+import React from "react";
 import {useEffect, useState} from "react";
-import {motion} from "framer-motion";
-import {BsFillArrowUpCircleFill, BsFillArrowRightCircleFill} from "react-icons/bs";
+import {motion} from "framer-motion"; // Import framer-motion
+import {BsFillArrowUpCircleFill, BsFillArrowRightCircleFill} from "react-icons/bs"; //
 
-const BackToTop: React.FC = () => {
-    const [showButton, setShowButton] = useState<boolean>(false);
+// Define an interface for your props
+interface BackToTopProps {
+    disabled: boolean;
+    left: number;
+    right: number;
+    delay: number;
+}
+
+
+const BackToTop: React.FC<Partial<BackToTopProps>> = (props) => {
+    const {disabled, left, right, delay} = props;
     const [scrollPosition, setScrollPosition] = useState<number>(0);
     const [isClicked, setIsClicked] = useState<boolean>(false);
     const [opacity, setOpacity] = useState<number>(1);
 
     useEffect(() => {
         const handleScroll = () => {
-            const position = window.pageYOffset;
+            const position = window.scrollY; // Use window.scrollY instead of window.pageYOffset
             const maxScroll = document.body.scrollHeight - window.innerHeight;
             const percentage = (position / maxScroll) * 100;
             setScrollPosition(percentage);
-            setShowButton(position > 100);
             setOpacity(1);
         };
 
+
         let timeout: NodeJS.Timeout;
+
         const handleScrollEnd = () => {
             setOpacity(1);
             clearTimeout(timeout);
@@ -34,7 +45,7 @@ const BackToTop: React.FC = () => {
                         return prevOpacity - 0.1;
                     });
                 }, 100);
-            }, 1000);
+            }, delay || 1000);
         };
 
         const handleWheel = () => {
@@ -56,24 +67,26 @@ const BackToTop: React.FC = () => {
             window.removeEventListener("wheel", handleWheel);
             window.removeEventListener("touchmove", handleTouchMove);
         };
-    }, []);
+    }, [delay]);
 
     const scrollToTop = () => {
         setIsClicked(true);
         window.scrollTo({top: 0, behavior: "smooth"});
         setTimeout(() => {
             setIsClicked(false);
-        }, 1000);
+        }, delay || 1000);
     };
 
-    const handleMouseEnter = () => {
-        setOpacity(1);
-    };
+    // Check if disabled prop is true
+    if (disabled) {
+        // Return null to render nothing
+        return null;
+    }
 
     return (
         <div
-            className={`fixed bottom-4 right-4 z-50`}
-            style={{opacity: opacity}}
+            className={`fixed bottom-4 z-50`}
+            style={{opacity, left, right}}
             onMouseEnter={() => setOpacity(1)}
             onMouseLeave={() => setOpacity(0)}
         >
@@ -103,9 +116,9 @@ const BackToTop: React.FC = () => {
                         </div>
                     </div>
                     <div>
-                        <span className="text-sm font-medium text-gray-400">
-                            {`${Math.floor(scrollPosition)}%`}
-                        </span>
+            <span className="text-sm font-medium text-gray-400">
+              {`${Math.floor(scrollPosition)}%`}
+            </span>
                     </div>
                 </div>
             </motion.button>
@@ -113,4 +126,13 @@ const BackToTop: React.FC = () => {
     );
 };
 
+BackToTop.defaultProps = {
+    disabled: true,
+    left: undefined,
+    right: 4,
+    delay: undefined,
+};
+
 export default BackToTop;
+
+
